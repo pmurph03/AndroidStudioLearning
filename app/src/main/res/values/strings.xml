@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Easy Tasks and Habits</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="new_task_button">Add New Item</string>
+    <string name="new_item_name">Habit Name:</string>
+    <string name="new_item_text">Enter a name</string>
+    <string name="new_item_type">Type:</string>
+    <string name="new_item_frequency">Frequency:</string>
+    <string name="new_item_timesPerWeek">per week</string>
+    <string name="new_item_timesPerMonth">per month</string>
+    <string name="new_item_timesPerDay">per day</string>
+    <string name="new_item_buttonCreate">Done</string>
+</resources>
