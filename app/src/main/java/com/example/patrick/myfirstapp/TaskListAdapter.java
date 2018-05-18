@@ -14,10 +14,13 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
 
     class TaskViewHolder extends RecyclerView.ViewHolder {
         private final TextView taskItemView;
-
+        private final TextView freqItemView;
+        private final TextView schedItemView;
         private TaskViewHolder(View itemView) {
             super(itemView);
             taskItemView = itemView.findViewById(R.id.textView);
+            freqItemView = itemView.findViewById(R.id.freqView);
+            schedItemView = itemView.findViewById(R.id.schedView);
         }
     }
 
@@ -40,6 +43,8 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
         {
             Task currentTask = mTasks.get(position);
             holder.taskItemView.setText(currentTask.getTask());
+            holder.freqItemView.setText(currentTask.getFrequency().toString());
+            holder.schedItemView.setText(currentTask.getTaskSchedule().toString());
         }
         else {
                 //cover case of no data being ready yet
