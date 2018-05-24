@@ -1,26 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TaskCreation">
+
+    <TextView
+        android:id="@+id/habitLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/new_item_name"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        app:layout_constraintEnd_toStartOf="@+id/new_task_id"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <EditText
-        android:id="@+id/edit_task"
-        android:layout_width="match_parent"
+        android:id="@+id/new_task_id"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/hint_task"
-        android:inputType="textAutoComplete"
-        android:padding="@dimen/small_padding"
-        android:layout_marginBottom="@dimen/big_padding"
-        android:layout_marginTop="@dimen/big_padding"
-        android:textSize="18sp" />
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:hint="@string/new_item_text"
+        android:inputType="textPersonName"
+        android:text="@string/new_item_text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/habitLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/habitLabel" />
+
+    <TextView
+        android:id="@+id/frequencyLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/new_item_schedule"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        app:layout_constraintEnd_toEndOf="@+id/habitLabel"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/habitLabel"
+        app:layout_constraintTop_toBottomOf="@+id/habitLabel" />
+
+    <Spinner
+        android:id="@+id/schedule_Spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:entries="@array/timeArray"
+        app:layout_constraintBaseline_toBaselineOf="@+id/frequencyLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/frequencyLabel" />
+
+    <Spinner
+        android:id="@+id/frequency_Spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:entries="@array/frequency"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/frequencyLabel"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/frequencyLabel"
+        app:layout_constraintTop_toBottomOf="@+id/frequencyLabel" />
+
+    <TextView
+        android:id="@+id/timePerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_item_timesPerDay"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        app:layout_constraintBaseline_toBaselineOf="@+id/frequency_Spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/frequency_Spinner" />
 
     <Button
-        android:id="@+id/button_save"
-        android:layout_width="match_parent"
+        android:id="@+id/button_done_new_task"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:text="@string/button_save"
-        android:textColor="@color/buttonLabel" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="onDoneButtonClicked"
+        android:text="@string/new_item_buttonCreate"
+        app:layout_constraintEnd_toEndOf="@+id/timePerLabel"
+        app:layout_constraintStart_toStartOf="@+id/timePerLabel"
+        app:layout_constraintTop_toBottomOf="@+id/timePerLabel" />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/new_task_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/big_padding"
+            android:layout_marginTop="@dimen/big_padding"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/hint_task"
+            android:inputType="textAutoComplete"
+            android:padding="@dimen/small_padding"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/text_frequency_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_item_frequency" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="@string/button_save"
+            android:textColor="@color/buttonLabel" />
+
+    </LinearLayout>
+        -->

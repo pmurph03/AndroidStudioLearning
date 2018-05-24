@@ -7,11 +7,12 @@
     <string name="new_item_text">Enter a name</string>
     <string name="new_item_type">Type:</string>
     <string name="new_item_frequency">Frequency:</string>
+    <string name="new_item_schedule">Schedule</string>
     <string name="new_item_timesPerWeek">per week</string>
     <string name="new_item_timesPerMonth">per month</string>
     <string name="new_item_timesPerDay">per day</string>
     <string name="new_item_buttonCreate">Done</string>
-    <string name="hint_task">Task...</string>
+    <string name="hint_task">Task Name...</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Word not saved because it is empty.</string>
 </resources>

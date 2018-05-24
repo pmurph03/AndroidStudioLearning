@@ -14,7 +14,7 @@ public class TaskCreation extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_creation);
-        Spinner spinner = (Spinner) findViewById(R.id.frequencySpinner);
+        Spinner spinner = (Spinner) findViewById(R.id.schedule_Spinner);
         spinner.setOnItemSelectedListener(this);
       //  Spinner perSpinner = (Spinner) findViewById(R.id.timesPerFrequencySpinner);
      //   spinner.setOnItemSelectedListener(this);
@@ -22,7 +22,7 @@ public class TaskCreation extends AppCompatActivity implements AdapterView.OnIte
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id){
         long selected = parent.getSelectedItemId();
-        if (parent.getId()== R.id.frequencySpinner)
+        if (parent.getId()== R.id.schedule_Spinner)
         {
             TextView textView = (TextView) findViewById(R.id.timePerLabel);
             if (selected == 0) {
