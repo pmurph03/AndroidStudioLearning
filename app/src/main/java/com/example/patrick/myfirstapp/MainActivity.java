@@ -8,8 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewParent;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -66,6 +69,42 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,NewTaskActivity.class);
         startActivityForResult(intent, NEW_TASK_ACTIVITY_REQUEST_CODE);
     }
+
+    public void onFABCompleteClick(View view)
+    {
+        mTaskViewModel.insert(new Task("Name",1,TaskSchedule.Daily));
+        Log.d("TEST","Clicked Complete");
+        String parentName = view.getParent().toString();
+        Log.d("TEST",parentName);
+        TextView taskName = findViewById(R.id.taskNameView);
+        Log.d("TEST",taskName.getText().toString());
+
+        ViewParent parent = view.getParent();
+        if (parent==null)
+        {
+            Log.d("TEST","parent is null");
+        }
+        else
+        {
+
+        }
+        if (view!=null)
+        {
+          //  if (view.get)
+           // if (view.getId() )
+        }
+    }
+
+    public void onFABFailClick(View view)
+    {
+        Log.d("TEST", "Clicked Fail");
+        String parentName = view.getParent().toString();
+        Log.d("TEST",parentName);
+        TextView taskName = findViewById(R.id.taskNameView);
+        Log.d("TEST",taskName.getText().toString());
+    }
+
+
 
 
     //**Called when user taps the send button*/

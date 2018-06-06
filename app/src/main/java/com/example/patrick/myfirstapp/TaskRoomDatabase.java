@@ -10,7 +10,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
-@Database(entities = {Task.class}, version = 2)
+@Database(entities = {Task.class}, version = 4)
 @TypeConverters({TypeTransmogrifiers.class})
 public abstract class TaskRoomDatabase extends RoomDatabase{
     public abstract TaskDao taskDao();
@@ -35,6 +35,7 @@ public abstract class TaskRoomDatabase extends RoomDatabase{
         return INSTANCE;
     }
 
+
     private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase database)
@@ -54,9 +55,12 @@ public abstract class TaskRoomDatabase extends RoomDatabase{
         protected Void doInBackground(final Void... params)
         {
             mDao.deleteAll();
-            Task task = new Task("Task1...",1,TaskSchedule.Monthly);
+            Task task = new Task("Task1Name",1,TaskSchedule.Monthly);
+            //task.getCompletions().add(Boolean.FALSE);
             mDao.insert(task);
-            task = new Task("Task2...",1,TaskSchedule.Daily);
+
+            task = new Task("Task2Name",3,TaskSchedule.Daily);
+          //  task.getCompletions().add(Boolean.TRUE);
             mDao.insert(task);
             return null;
         }

@@ -46,30 +46,57 @@
 
 
 </android.support.constraint.ConstraintLayout>-->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textView"
-        style="@style/task_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/holo_orange_light" />
+        android:id="@+id/taskNameView"
+        style = "@style/task_items"
+        android:background="@android:color/holo_orange_light"
+        android:text="Task Name"
+   />
+
 
     <TextView
         android:id="@+id/freqView"
-        style="@style/task_title"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style = "@style/task_items"
+        android:text="Frequency"
         android:background="@android:color/holo_blue_bright"/>
 
     <TextView
         android:id="@+id/schedView"
-        style="@style/task_title"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style = "@style/task_items"
+        android:text="Schedule"
         android:background="@android:color/holo_green_light"/>
+
+    <TextView
+        android:id="@+id/dateView"
+        style = "@style/task_items"
+        android:text="Date"
+        android:background="@android:color/holo_green_light"/>
+
+    <TextView
+        android:id="@+id/completionView"
+        style = "@style/task_items"
+        android:text="Completions"
+        android:background="@android:color/holo_green_light"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/completeCheck"
+        style = "@style/task_buttons"
+        android:clickable="true"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:onClick="onFABCompleteClick"
+        app:srcCompat="@android:drawable/checkbox_on_background" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/failCheck"
+        style = "@style/task_buttons"
+        android:clickable="true"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:onClick="onFABCompleteClick"
+        app:srcCompat="@android:drawable/btn_dialog" />
+
+
 </LinearLayout>
