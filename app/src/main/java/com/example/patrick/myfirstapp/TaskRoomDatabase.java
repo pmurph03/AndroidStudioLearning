@@ -56,11 +56,9 @@ public abstract class TaskRoomDatabase extends RoomDatabase{
         {
             mDao.deleteAll();
             Task task = new Task("Task1Name",1,TaskSchedule.Monthly);
-            //task.getCompletions().add(Boolean.FALSE);
             mDao.insert(task);
 
             task = new Task("Task2Name",3,TaskSchedule.Daily);
-          //  task.getCompletions().add(Boolean.TRUE);
             mDao.insert(task);
             return null;
         }

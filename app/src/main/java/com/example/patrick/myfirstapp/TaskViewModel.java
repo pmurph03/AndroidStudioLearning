@@ -24,4 +24,10 @@ public class TaskViewModel extends AndroidViewModel {
     LiveData<List<Task>> getAllTasks(){return mAllTasks;}
 
     public void insert(Task task){mRepository.insert(task);}
+
+    public void update(Task task){mRepository.updateTask(task);}
+
+    public void updateTaskCompletionByName(String name, boolean isComplete){mRepository.updateTasKCompletionByName(name,isComplete);}
+
+    //public Task getTaskByName(String name){ return null;}
 }

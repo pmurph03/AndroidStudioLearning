@@ -44,11 +44,16 @@ public class Task {
     }
 
     public String getTask(){return this.mTask;}
+
     public Integer getFrequency(){return this.mFrequency;}
     public void setFrequency(Integer value){this.mFrequency = value;}
+
     public TaskSchedule getTaskSchedule(){return this.mTaskSchedule;}
+    public void setTaskSchedule(TaskSchedule schedule){this.mTaskSchedule = schedule;}
+
     public Date getDateCreated(){return this.mDateCreated;}
     public void setDateCreated(Date date){this.mDateCreated = date;}
+
     public ArrayList<Boolean> getCompletions(){return this.mCompletions;}
     public void setCompletions(ArrayList<Boolean> completions){this.mCompletions = completions;}
 

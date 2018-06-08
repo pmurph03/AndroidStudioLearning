@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TaskListAdapter.MyCallBack {
 
     public static final String EXTRA_MESSAGE = "com.examble.myfirstapp.MESSAGE";
     public static final int NEW_TASK_ACTIVITY_REQUEST_CODE = 1;
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        final TaskListAdapter adapter = new TaskListAdapter(this);
+        final TaskListAdapter adapter = new TaskListAdapter(this,this);
         recyclerView.setAdapter(adapter);
 
         //associate view model with view model provider
@@ -70,38 +70,20 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, NEW_TASK_ACTIVITY_REQUEST_CODE);
     }
 
-    public void onFABCompleteClick(View view)
+    public void listenerMethod(String taskName, Boolean isComplete)
     {
-        mTaskViewModel.insert(new Task("Name",1,TaskSchedule.Daily));
-        Log.d("TEST","Clicked Complete");
-        String parentName = view.getParent().toString();
-        Log.d("TEST",parentName);
-        TextView taskName = findViewById(R.id.taskNameView);
-        Log.d("TEST",taskName.getText().toString());
-
-        ViewParent parent = view.getParent();
-        if (parent==null)
+        if (isComplete)
         {
-            Log.d("TEST","parent is null");
+            Log.d("TEST","listener: Clicked Complete");
         }
         else
         {
-
+            Log.d("TEST", "listener: Clicked Fail");
         }
-        if (view!=null)
-        {
-          //  if (view.get)
-           // if (view.getId() )
-        }
-    }
 
-    public void onFABFailClick(View view)
-    {
-        Log.d("TEST", "Clicked Fail");
-        String parentName = view.getParent().toString();
-        Log.d("TEST",parentName);
-        TextView taskName = findViewById(R.id.taskNameView);
-        Log.d("TEST",taskName.getText().toString());
+        Log.d("TEST", "TASK NAME IS: " + taskName);
+        mTaskViewModel.updateTaskCompletionByName(taskName,isComplete);
+        Log.d("TEST", "Task updated");
     }
 
 

@@ -32,4 +32,8 @@ public interface TaskDao {
     //order column by Tasks name.
     @Query("SELECT * from task_table ORDER BY Tasks ASC")
     LiveData<List<Task>> getAllTasks();
+
+    @Query("SELECT * FROM task_table WHERE Tasks LIKE :name")
+    Task getTaskByName(String name);
+
 }

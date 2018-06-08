@@ -87,7 +87,6 @@
         style = "@style/task_buttons"
         android:clickable="true"
         android:backgroundTint="@android:color/holo_green_dark"
-        android:onClick="onFABCompleteClick"
         app:srcCompat="@android:drawable/checkbox_on_background" />
 
     <android.support.design.widget.FloatingActionButton
@@ -95,7 +94,6 @@
         style = "@style/task_buttons"
         android:clickable="true"
         android:backgroundTint="@android:color/holo_red_dark"
-        android:onClick="onFABCompleteClick"
         app:srcCompat="@android:drawable/btn_dialog" />
 
 

@@ -13,7 +13,6 @@ import java.util.List;
 
 public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>{
 
-
     class TaskViewHolder extends RecyclerView.ViewHolder {
         private final TextView taskItemView;
         private final TextView freqItemView;
@@ -34,13 +33,26 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
             completionButton = itemView.findViewById(R.id.completeCheck);
             failButton = itemView.findViewById(R.id.failCheck);
 
+
         }
     }
 
     private final LayoutInflater mInflater;
     private List<Task> mTasks; //cached copy of tasks.
 
-    TaskListAdapter(Context context){mInflater = LayoutInflater.from(context);}
+    //CALLBACK
+    MyCallBack myCallBack;
+    public interface MyCallBack{
+        void listenerMethod(String taskName, Boolean isComplete);
+    }
+
+    //CONSTRUCTOR
+    TaskListAdapter(Context context, MyCallBack myCallBack)
+    {
+        Log.d("TEST:" , "TASK LIST ADAPTER CREATED");
+        this.myCallBack = myCallBack;
+        mInflater = LayoutInflater.from(context);
+    }
 
     @Override
     public TaskViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -67,26 +79,24 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.TaskVi
             holder.schedItemView.setVisibility(View.GONE);
             holder.dateItemView.setVisibility(View.GONE);
          //   holder.completionItemView.setVisibility(View.GONE);
-            holder.completionButton.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View view)
-                {
-                    //TODO: check if task already completed for the day/replace failure with success
-                    //TODO: adding completetions then adding a new task removes completions, so this is only adding to the cached db.
-                    currentTask.getCompletions().add(Boolean.TRUE);
-                    currentTask.setFrequency(4);
-                    notifyDataSetChanged();
-                }
-            });
-            holder.failButton.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View view)
-                {
-                    currentTask.getCompletions().add(Boolean.FALSE);
+            //TODO: check if task already completed for the day/replace failure with success
 
+            holder.completionButton.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view){
+                   myCallBack.listenerMethod(currentTask.getTask(),true);
+                   notifyDataSetChanged();
+               }
+            });
+            holder.failButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view){
+                    myCallBack.listenerMethod(currentTask.getTask(),false);
                     notifyDataSetChanged();
                 }
             });
+
+
 
         }
         else {
