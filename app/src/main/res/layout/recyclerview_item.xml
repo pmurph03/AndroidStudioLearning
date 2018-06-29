@@ -55,9 +55,10 @@
         style = "@style/task_items"
         android:background="@android:color/holo_orange_light"
         android:text="Task Name"
+
    />
 
-
+<!-- android:layout_marginTop="@dimen/recycler_task_height_margin"-->
     <TextView
         android:id="@+id/freqView"
         style = "@style/task_items"

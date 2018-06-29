@@ -3,12 +3,17 @@ package com.example.patrick.myfirstapp;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewParent;
 import android.widget.EditText;
@@ -23,11 +28,20 @@ public class MainActivity extends AppCompatActivity implements TaskListAdapter.M
     public static final int NEW_TASK_ACTIVITY_REQUEST_CODE = 1;
 
     private TaskViewModel mTaskViewModel;
-
+//  <!--  android:theme="@style/AppTheme"> -->
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar topToolbar = (Toolbar) findViewById(R.id.top_toolbar);
+        setSupportActionBar(topToolbar);
+        if (topToolbar!=null)
+        {
+            topToolbar.setTitle(R.string.title_activity_main);
+            topToolbar.setTitleTextColor(Color.RED);
+            topToolbar.inflateMenu(R.menu.toolbar_menu);
+        }
+
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         final TaskListAdapter adapter = new TaskListAdapter(this,this);
@@ -44,6 +58,32 @@ public class MainActivity extends AppCompatActivity implements TaskListAdapter.M
            }
         });
     }
+
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater mi = getMenuInflater();
+        mi.inflate(R.menu.toolbar_menu, menu);
+        return true;
+    }
+
+   @Override
+   public boolean onOptionsItemSelected(MenuItem item)
+   {
+       switch(item.getItemId())
+       {
+           case R.id.action_stats:
+               Intent intent = new Intent(MainActivity.this,StatsActivity.class);
+               startActivity(intent);
+               return true;
+
+           case R.id.action_favorite:
+               return true;
+
+           default:
+               return super.onOptionsItemSelected(item);
+       }
+   }
+
 
     //if activity returns with RESULT_OK, insert the word into the database by calling insert()
     //method of TaskViewModel

@@ -19,7 +19,7 @@ The margin is a simple delimiter between the words. -->
         <item name="android:paddingLeft">8dp</item>
     </style>
 
-    <style name = "task_items">
+    <style name="task_items">
         <item name="android:layout_marginTop">16dp</item>
         <item name="android:layout_marginLeft">16dp</item>
         <item name="android:layout_width">wrap_content</item>
@@ -27,13 +27,22 @@ The margin is a simple delimiter between the words. -->
 
     </style>
 
-    <style name = "task_buttons">
+    <style name="task_buttons">
         <item name="android:layout_marginTop">16dp</item>
         <item name="android:layout_marginLeft">16dp</item>
         <item name="android:layout_width">16dp</item>
         <item name="android:layout_height">16dp</item>
 
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

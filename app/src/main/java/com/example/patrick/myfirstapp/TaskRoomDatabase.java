@@ -54,11 +54,15 @@ public abstract class TaskRoomDatabase extends RoomDatabase{
         @Override
         protected Void doInBackground(final Void... params)
         {
+            //TODO: remove fake tasks to maintain tasks between loads, this resets everything
             mDao.deleteAll();
-            Task task = new Task("Task1Name",1,TaskSchedule.Monthly);
+            Task task = new Task("MonthlyTask",1,TaskSchedule.Monthly);
             mDao.insert(task);
 
-            task = new Task("Task2Name",3,TaskSchedule.Daily);
+            task = new Task("DailyTask",1,TaskSchedule.Daily);
+            mDao.insert(task);
+
+            task = new Task("WeeklyTask", 1,TaskSchedule.Weekly);
             mDao.insert(task);
             return null;
         }

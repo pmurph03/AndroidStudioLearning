@@ -3,4 +3,7 @@
 <resources>
     <dimen name="small_padding">6dp</dimen>
     <dimen name="big_padding">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="action_bar_height">16dp</dimen>
+    <dimen name="recycler_task_height_margin">30dp</dimen>
 </resources>

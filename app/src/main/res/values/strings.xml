@@ -15,4 +15,8 @@
     <string name="hint_task">Task Name...</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Word not saved because it is empty.</string>
+    <string name="title_activity_stats">StatsActivity</string>
+    <string name="title_activity_main">Easy Tasks</string>
+    <string name="action_stats">Graphs</string>
+    <string name="action_favorite">Favorite</string>
 </resources>

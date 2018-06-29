@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.example.patrick.myfirstapp"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -46,4 +46,7 @@ dependencies {
     //gson
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.google.code.gson:gson:2.8.0'
+
+    //joda
+    implementation 'com.github.JodaOrg:joda-time:v2.9.9'
 }
